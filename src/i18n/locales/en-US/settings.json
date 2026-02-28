@@ -11,6 +11,8 @@
     "title": "Appearance",
     "theme": "Theme",
     "language": "Language",
+    "autostart": "Start on boot",
+    "autostartDesc": "Automatically start Timlyzer when you log in",
     "closeAction": "When closing window",
     "minimize": "Minimize to tray",
     "ask": "Ask every time",

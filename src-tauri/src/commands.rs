@@ -533,6 +533,30 @@ pub fn export_to_json(
     })
 }
 // ============================================================================
+// Autostart Commands
+// ============================================================================
+
+/// Get autostart enabled status
+#[tauri::command]
+pub fn get_autostart(app: tauri::AppHandle) -> Result<bool, String> {
+    use tauri_plugin_autostart::ManagerExt;
+    let manager = app.autolaunch();
+    manager.is_enabled().map_err(|e: tauri_plugin_autostart::Error| e.to_string())
+}
+
+/// Set autostart enabled status
+#[tauri::command]
+pub fn set_autostart(app: tauri::AppHandle, enabled: bool) -> Result<(), String> {
+    use tauri_plugin_autostart::ManagerExt;
+    let manager = app.autolaunch();
+    if enabled {
+        manager.enable().map_err(|e: tauri_plugin_autostart::Error| e.to_string())
+    } else {
+        manager.disable().map_err(|e: tauri_plugin_autostart::Error| e.to_string())
+    }
+}
+
+// ============================================================================
 // System Commands
 // ============================================================================
 

@@ -29,19 +29,6 @@ impl Default for TrackerConfig {
     }
 }
 
-/// Current tracking state
-#[derive(Debug, Clone, Default)]
-struct TrackingState {
-    /// Currently tracked window
-    current_window: Option<WindowInfo>,
-    /// Current AppTrackItem being built
-    current_app_item: Option<TrackItem>,
-    /// Current StatusTrackItem being built
-    current_status_item: Option<TrackItem>,
-    /// Last tracking time
-    last_track_time: i64,
-}
-
 /// Tracker service for automatic time tracking
 pub struct TrackerService {
     /// Reference to database
@@ -50,8 +37,6 @@ pub struct TrackerService {
     state_monitor: Arc<StateMonitor>,
     /// Tracker configuration
     config: RwLock<TrackerConfig>,
-    /// Current tracking state
-    state: RwLock<TrackingState>,
     /// Whether tracking is running
     is_running: Arc<AtomicBool>,
     /// Whether tracking is paused
@@ -70,7 +55,6 @@ impl TrackerService {
             db,
             state_monitor,
             config: RwLock::new(config),
-            state: RwLock::new(TrackingState::default()),
             is_running: Arc::new(AtomicBool::new(false)),
             is_paused: Arc::new(AtomicBool::new(false)),
         }

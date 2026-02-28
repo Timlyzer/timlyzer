@@ -17,15 +17,20 @@ jobs:
             args: "--target aarch64-apple-darwin"
           - platform: "macos-13" # for Intel
             args: "--target x86_64-apple-darwin"
-          # Uncomment if you want to build for Windows/Linux
-          # - platform: 'ubuntu-22.04'
-          #   args: ''
-          # - platform: 'windows-latest'
-          #   args: ''
+          - platform: "ubuntu-22.04"
+            args: ""
+          - platform: "windows-latest"
+            args: ""
 
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install dependencies (ubuntu only)
+        if: matrix.platform == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
       - name: setup node
         uses: actions/setup-node@v4
@@ -40,7 +45,6 @@ jobs:
       - name: install rust stable
         uses: dtolnay/rust-toolchain@stable
         with:
-          # Those targets are only used on macos runners so node-gyp doesn't have to be installed
           targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin' || matrix.platform == 'macos-13' && 'x86_64-apple-darwin' || '' }}
 
       - name: Rust cache
@@ -56,7 +60,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version.
+          tagName: app-v__VERSION__
           releaseName: "Timlyzer v__VERSION__"
           releaseBody: "See the assets to download this version and install."
           releaseDraft: true

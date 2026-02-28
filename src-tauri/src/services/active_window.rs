@@ -46,7 +46,7 @@ const KNOWN_BROWSERS: &[&str] = &[
 
 /// Check if an app is a known browser
 fn is_browser(app_name: &str) -> bool {
-    KNOWN_BROWSERS.iter().any(|&b| app_name == b)
+    KNOWN_BROWSERS.contains(&app_name)
 }
 
 /// Get the URL from a browser using AppleScript (macOS only)

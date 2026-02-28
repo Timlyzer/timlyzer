@@ -166,7 +166,7 @@ fn get_idle_time_iokit() -> Option<Duration> {
     }
 
     unsafe {
-        let matching = IOServiceMatching(b"IOHIDSystem\0".as_ptr() as *const i8);
+        let matching = IOServiceMatching(c"IOHIDSystem".as_ptr());
         if matching.is_null() {
             log::warn!("Failed to create IOHIDSystem matching dictionary");
             return None;
