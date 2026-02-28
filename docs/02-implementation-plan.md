@@ -3,8 +3,7 @@
 ## 1. 项目概述
 
 **项目名称**: Timlyzer  
-**项目目标**: 基于 Tauri + React + Tailwind CSS 构建轻量级跨平台时间追踪应用  
-**原型参考**: Tockler (Electron 版本)
+**项目目标**: 基于 Tauri + React + Tailwind CSS 构建轻量级跨平台时间追踪应用
 
 ## 2. 开发阶段
 
@@ -210,7 +209,6 @@
 
 ### 5.4 类似项目参考
 
-- [Tockler](https://github.com/MayGo/tockler) - Electron 版本 (本项目原型)
 - [ActivityWatch](https://github.com/ActivityWatch/activitywatch) - Python 版本
 - [RescueTime](https://www.rescuetime.com/) - 商业产品参考
 

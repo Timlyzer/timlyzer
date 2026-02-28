@@ -80,12 +80,11 @@ timlyzer/
 
 See the [docs](./docs/) directory for detailed documentation:
 
-- [Tockler Analysis](./docs/01-tockler-analysis.md) - Reference project analysis
-- [Architecture](./docs/02-new-architecture.md) - System architecture
-- [Implementation Plan](./docs/03-implementation-plan.md) - Development roadmap
-- [Tauri Research](./docs/04-tauri-research.md) - Tauri best practices
-- [Feature Spec](./docs/05-feature-spec.md) - Feature requirements
-- [UI Design](./docs/06-ui-design-spec.md) - Design system
+- [Architecture](./docs/01-new-architecture.md) - System architecture
+- [Implementation Plan](./docs/02-implementation-plan.md) - Development roadmap
+- [Tauri Research](./docs/03-tauri-research.md) - Tauri best practices
+- [Feature Spec](./docs/04-feature-spec.md) - Feature requirements
+- [UI Design](./docs/05-ui-design-spec.md) - Design system
 
 ## License
 

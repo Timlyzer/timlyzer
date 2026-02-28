@@ -4,7 +4,7 @@
 
 ### 1.1 核心框架对比
 
-| 特性         | Electron (Tockler)     | Tauri (Timlyzer)       |
+| 特性         | Electron               | Tauri                  |
 | ------------ | ---------------------- | ---------------------- |
 | **后端语言** | Node.js                | Rust                   |
 | **打包大小** | ~150MB                 | ~10-30MB               |
@@ -499,7 +499,7 @@ export const useTimelineStore = create<TimelineState>((set, get) => ({
     const items = await trackItemApi.findAllDayItems(
       timeRange[0],
       timeRange[1],
-      "AppTrackItem"
+      "AppTrackItem",
     );
     set({ trackItems: items, isLoading: false });
   },
@@ -545,4 +545,4 @@ pnpm tauri build
 
 ## 7. 下一步计划
 
-详见 `03-implementation-plan.md`
+详见 `02-implementation-plan.md`
