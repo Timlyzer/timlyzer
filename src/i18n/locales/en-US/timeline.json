@@ -1,0 +1,35 @@
+{
+  "tracks": {
+    "task": "Task",
+    "status": "Status",
+    "app": "App",
+    "noData": "No data"
+  },
+  "controls": {
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "resetZoom": "Reset zoom",
+    "panLeft": "Scroll earlier",
+    "panRight": "Scroll later",
+    "live": "Live",
+    "today": "Today",
+    "view": "view"
+  },
+  "stats": {
+    "onlineToday": "Online Today",
+    "appSwitches": "App Switches",
+    "tasksLogged": "Tasks Logged"
+  },
+  "selected": {
+    "title": "Selected Item",
+    "app": "App",
+    "itemTitle": "Title",
+    "start": "Start",
+    "end": "End",
+    "duration": "Duration",
+    "type": "Type",
+    "url": "URL",
+    "color": "Color"
+  },
+  "tips": "Tip: ⌘/Ctrl + scroll to zoom, Shift + scroll to pan"
+}

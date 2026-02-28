@@ -1,0 +1,25 @@
+{
+  "title": "Summary",
+  "range": {
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "today": "Today"
+  },
+  "stats": {
+    "totalActive": "Total Active",
+    "appsUsed": "Apps Used",
+    "mostUsedApp": "Most Used App",
+    "activityTime": "activity time"
+  },
+  "charts": {
+    "appUsage": "App Usage",
+    "usageBreakdown": "Usage Breakdown",
+    "noData": "No data available for this period",
+    "startTracking": "Start tracking to see your usage breakdown"
+  },
+  "footer": {
+    "totalTracked": "Total tracked",
+    "applications": "Applications"
+  }
+}

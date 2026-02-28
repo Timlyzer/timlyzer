@@ -1,0 +1,35 @@
+{
+  "tracks": {
+    "task": "任务",
+    "status": "状态",
+    "app": "应用",
+    "noData": "无数据"
+  },
+  "controls": {
+    "zoomIn": "放大",
+    "zoomOut": "缩小",
+    "resetZoom": "重置缩放",
+    "panLeft": "向前滚动",
+    "panRight": "向后滚动",
+    "live": "实时",
+    "today": "今天",
+    "view": "视图"
+  },
+  "stats": {
+    "onlineToday": "今日在线",
+    "appSwitches": "应用切换",
+    "tasksLogged": "记录任务"
+  },
+  "selected": {
+    "title": "选中项",
+    "app": "应用",
+    "itemTitle": "标题",
+    "start": "开始",
+    "end": "结束",
+    "duration": "时长",
+    "type": "类型",
+    "url": "网址",
+    "color": "颜色"
+  },
+  "tips": "提示: ⌘/Ctrl + 滚轮缩放，Shift + 滚轮平移"
+}

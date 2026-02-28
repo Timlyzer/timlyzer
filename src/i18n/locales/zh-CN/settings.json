@@ -1,0 +1,80 @@
+{
+  "title": "设置",
+  "tabs": {
+    "general": "常规",
+    "tracking": "在追踪",
+    "colors": "应用颜色",
+    "data": "数据",
+    "about": "关于"
+  },
+  "appearance": {
+    "title": "外观",
+    "theme": "主题",
+    "language": "语言",
+    "closeAction": "当关闭窗口时",
+    "minimize": "最小化到托盘",
+    "ask": "每次询问",
+    "quit": "退出应用程序"
+  },
+  "tracking": {
+    "title": "追踪设置",
+    "pollingInterval": "轮询间隔",
+    "pollingDesc": "检查活动窗口变化的频率",
+    "idleThreshold": "闲置阈值",
+    "idleDesc": "标记状态为闲置前的时间",
+    "trackUrls": "追踪浏览器 URL",
+    "trackUrlsDesc": "记录来自 Web 浏览器的 URL（实验性）",
+    "seconds": "秒",
+    "minutes": "分钟"
+  },
+  "colors": {
+    "title": "应用颜色",
+    "noApps": "暂无追踪应用",
+    "desc": "开始使用应用后，颜色将显示在此处"
+  },
+  "data": {
+    "export": {
+      "title": "导出数据",
+      "desc": "导出最近 30 天的追踪数据",
+      "btnCsv": "导出 CSV",
+      "btnJson": "导出 JSON",
+      "success": "成功导出 {{count}} 条记录为 {{format}}",
+      "failed": "导出失败"
+    },
+    "db": {
+      "title": "数据库",
+      "location": "位置",
+      "size": "大小"
+    },
+    "clear": {
+      "title": "清除数据",
+      "desc": "永久删除旧的追踪数据以释放空间",
+      "btn30": "删除 30 天前的数据",
+      "btn90": "删除 90 天前的数据",
+      "confirm": "这将永久删除 {{days}} 天前的所有数据。继续吗？",
+      "success": "已删除 {{count}} 条记录"
+    }
+  },
+  "about": {
+    "title": "关于 Timlyzer",
+    "slogan": "让时间追踪变得简单",
+    "features": {
+      "title": "功能",
+      "auto": "自动时间追踪",
+      "window": "活动窗口检测",
+      "idle": "闲置检测",
+      "timeline": "时间轴可视化",
+      "stats": "统计与报表",
+      "export": "数据导出"
+    },
+    "builtWith": "基于 Tauri + React 构建",
+    "createdBy": "由 haxqer & isabel 创建"
+  },
+  "actions": {
+    "save": "保存设置",
+    "saving": "保存中..."
+  },
+  "messages": {
+    "saved": "设置已保存！"
+  }
+}

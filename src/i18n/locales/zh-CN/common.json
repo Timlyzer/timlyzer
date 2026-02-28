@@ -1,0 +1,20 @@
+{
+  "actions": {
+    "save": "保存",
+    "cancel": "取消",
+    "submit": "提交",
+    "delete": "删除",
+    "edit": "编辑",
+    "confirm": "确认",
+    "back": "返回"
+  },
+  "status": {
+    "loading": "加载中...",
+    "success": "成功",
+    "error": "错误"
+  },
+  "app": {
+    "name": "Timlyzer",
+    "language": "语言"
+  }
+}

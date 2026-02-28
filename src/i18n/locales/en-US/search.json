@@ -1,0 +1,29 @@
+{
+  "title": "Search Activity",
+  "subtitle": "Find exactly what you worked on across your timeline",
+  "placeholder": "Search by app name or window title...",
+  "button": "Search",
+  "ready": {
+    "title": "Ready to search",
+    "desc": "Find apps, windows, or activities from your history"
+  },
+  "noResults": {
+    "title": "No results found",
+    "desc": "Try adjusting your keywords or date range"
+  },
+  "results": "Found <bold>{{count}}</bold> results ({{duration}})",
+  "duration": "duration",
+  "filters": {
+    "all": "All Types",
+    "apps": "Apps",
+    "tasks": "Tasks",
+    "status": "Status"
+  },
+  "dateRange": {
+    "today": "Today",
+    "7days": "Last 7 days",
+    "30days": "Last 30 days",
+    "all": "All time"
+  },
+  "deleteConfirm": "Are you sure you want to delete this item?"
+}

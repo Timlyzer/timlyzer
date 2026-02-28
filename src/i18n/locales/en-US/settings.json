@@ -1,0 +1,80 @@
+{
+  "title": "Settings",
+  "tabs": {
+    "general": "General",
+    "tracking": "Tracking",
+    "colors": "App Colors",
+    "data": "Data",
+    "about": "About"
+  },
+  "appearance": {
+    "title": "Appearance",
+    "theme": "Theme",
+    "language": "Language",
+    "closeAction": "When closing window",
+    "minimize": "Minimize to tray",
+    "ask": "Ask every time",
+    "quit": "Quit application"
+  },
+  "tracking": {
+    "title": "Tracking Settings",
+    "pollingInterval": "Polling Interval",
+    "pollingDesc": "How often to check for active window changes",
+    "idleThreshold": "Idle Threshold",
+    "idleDesc": "Time before marking status as idle",
+    "trackUrls": "Track browser URLs",
+    "trackUrlsDesc": "Record URLs from web browsers (experimental)",
+    "seconds": "seconds",
+    "minutes": "minutes"
+  },
+  "colors": {
+    "title": "App Colors",
+    "noApps": "No tracked apps yet",
+    "desc": "Colors will appear here once you start using apps"
+  },
+  "data": {
+    "export": {
+      "title": "Export Data",
+      "desc": "Export your tracking data from the last 30 days",
+      "btnCsv": "Export CSV",
+      "btnJson": "Export JSON",
+      "success": "Exported {{count}} items to {{format}}",
+      "failed": "Export failed"
+    },
+    "db": {
+      "title": "Database",
+      "location": "Location",
+      "size": "Size"
+    },
+    "clear": {
+      "title": "Clear Data",
+      "desc": "Permanently delete old tracking data to free up space",
+      "btn30": "Delete older than 30 days",
+      "btn90": "Delete older than 90 days",
+      "confirm": "This will permanently delete all data older than {{days}} days. Continue?",
+      "success": "Deleted {{count}} items"
+    }
+  },
+  "about": {
+    "title": "About Timlyzer",
+    "slogan": "Time Tracking Made Simple",
+    "features": {
+      "title": "Features",
+      "auto": "Automatic time tracking",
+      "window": "Active window detection",
+      "idle": "Idle detection",
+      "timeline": "Timeline visualization",
+      "stats": "Statistics and reports",
+      "export": "Data export"
+    },
+    "builtWith": "Built with Tauri + React",
+    "createdBy": "Created by haxqer & isabel"
+  },
+  "actions": {
+    "save": "Save Settings",
+    "saving": "Saving..."
+  },
+  "messages": {
+    "saved": "Settings saved!"
+  }
+}

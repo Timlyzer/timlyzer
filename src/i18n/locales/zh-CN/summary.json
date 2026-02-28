@@ -1,0 +1,25 @@
+{
+  "title": "统计概览",
+  "range": {
+    "day": "日",
+    "week": "周",
+    "month": "月",
+    "today": "今天"
+  },
+  "stats": {
+    "totalActive": "总活跃时间",
+    "appsUsed": "使用应用",
+    "mostUsedApp": "最常用应用",
+    "activityTime": "活跃时间"
+  },
+  "charts": {
+    "appUsage": "应用使用情况",
+    "usageBreakdown": "使用分布",
+    "noData": "此期间无数据",
+    "startTracking": "开始追踪以查看分布"
+  },
+  "footer": {
+    "totalTracked": "总追踪时长",
+    "applications": "应用数量"
+  }
+}

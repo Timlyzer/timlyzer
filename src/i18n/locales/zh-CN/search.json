@@ -1,0 +1,29 @@
+{
+  "title": "搜索活动",
+  "subtitle": "在时间轴中查找您的工作记录",
+  "placeholder": "搜索应用名称或窗口标题...",
+  "button": "搜索",
+  "ready": {
+    "title": "准备搜索",
+    "desc": "从历史记录中查找应用、窗口或活动"
+  },
+  "noResults": {
+    "title": "未找到结果",
+    "desc": "尝试调整关键词或日期范围"
+  },
+  "results": "找到 <bold>{{count}}</bold> 条结果 ({{duration}})",
+  "duration": "持续时间",
+  "filters": {
+    "all": "全部类型",
+    "apps": "应用",
+    "tasks": "任务",
+    "status": "状态"
+  },
+  "dateRange": {
+    "today": "今天",
+    "7days": "最近7天",
+    "30days": "最近30天",
+    "all": "所有时间"
+  },
+  "deleteConfirm": "您确定要删除此项目吗？"
+}
