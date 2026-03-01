@@ -28,6 +28,9 @@
     "tailwind-merge": "^3.4.0",
     "zustand": "^5.0.9"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "@tauri-apps/cli": "^2",
