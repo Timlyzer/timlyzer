@@ -1,6 +1,6 @@
 # Timlyzer Makefile
 
-.PHONY: all dev build clean check lint help
+.PHONY: all dev build run clean check lint help
 
 # Default target
 all: help
@@ -18,6 +18,11 @@ build: ## Build the application for production
 
 build-debug: ## Build in debug mode
 	pnpm tauri build --debug
+
+run: ## Build, kill old instance, and launch the app for quick testing
+	pnpm tauri build
+	-pkill -x Timlyzer 2>/dev/null; sleep 1
+	open src-tauri/target/release/bundle/macos/Timlyzer.app
 
 # Quality Checks
 check: ## Check Rust code for errors

@@ -430,6 +430,35 @@ export const exportApi = {
 };
 
 // ============================================================================
+// Autostart API
+// ============================================================================
+
+export const autostartApi = {
+  /**
+   * Check if autostart is enabled
+   */
+  isEnabled: async (): Promise<boolean> => {
+    try {
+      return await invoke<boolean>("get_autostart");
+    } catch (error) {
+      console.error("getAutostart error:", error);
+      return false;
+    }
+  },
+
+  /**
+   * Set autostart enabled/disabled
+   */
+  setEnabled: async (enabled: boolean): Promise<void> => {
+    try {
+      await invoke("set_autostart", { enabled });
+    } catch (error) {
+      console.error("setAutostart error:", error);
+    }
+  },
+};
+
+// ============================================================================
 // App control API
 // ============================================================================
 

@@ -11,6 +11,8 @@
     "title": "Appearance",
     "theme": "Theme",
     "language": "Language",
+    "autostart": "Start on boot",
+    "autostartDesc": "Automatically start Timlyzer when you log in",
     "closeAction": "When closing window",
     "minimize": "Minimize to tray",
     "ask": "Ask every time",
@@ -44,7 +46,8 @@
     "db": {
       "title": "Database",
       "location": "Location",
-      "size": "Size"
+      "size": "Size",
+      "openLocation": "Open File Location"
     },
     "clear": {
       "title": "Clear Data",

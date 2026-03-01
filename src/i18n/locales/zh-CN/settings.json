@@ -11,6 +11,8 @@
     "title": "外观",
     "theme": "主题",
     "language": "语言",
+    "autostart": "开机自启动",
+    "autostartDesc": "登录时自动启动 Timlyzer",
     "closeAction": "当关闭窗口时",
     "minimize": "最小化到托盘",
     "ask": "每次询问",
@@ -44,7 +46,8 @@
     "db": {
       "title": "数据库",
       "location": "位置",
-      "size": "大小"
+      "size": "大小",
+      "openLocation": "打开文件位置"
     },
     "clear": {
       "title": "清除数据",

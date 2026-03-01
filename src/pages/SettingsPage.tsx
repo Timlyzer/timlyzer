@@ -18,6 +18,7 @@ import {
   Trash2,
   Palette,
   Info,
+  FolderOpen,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { cn, formatDuration } from "@/lib/utils";
@@ -25,6 +26,7 @@ import {
   settingsApi,
   exportApi,
   trackItemApi,
+  autostartApi,
   type TrackedApp,
   type DatabaseInfo,
   type AppSettings,
@@ -32,6 +34,7 @@ import {
 import { appApi } from "@/services/tauri-api";
 import { format, subDays, startOfDay, endOfDay } from "date-fns";
 import { save } from "@tauri-apps/plugin-dialog";
+import { revealItemInDir } from "@tauri-apps/plugin-opener";
 
 type SettingsTab = "general" | "tracking" | "colors" | "data" | "about";
 
@@ -45,6 +48,7 @@ export function SettingsPage() {
   const [isExporting, setIsExporting] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [exportMessage, setExportMessage] = useState("");
+  const [autostartEnabled, setAutostartEnabled] = useState(false);
 
   // Load settings store for theme
   const { theme, setTheme } = useSettingsStore();
@@ -62,6 +66,10 @@ export function SettingsPage() {
       setDbInfo(info);
       setAppVersion(version);
       setSettings(settingsData);
+
+      // Load autostart status
+      const autostart = await autostartApi.isEnabled();
+      setAutostartEnabled(autostart);
     };
     loadData();
   }, []);
@@ -249,6 +257,36 @@ export function SettingsPage() {
                     ))}
                   </div>
                 </div>
+
+                {/* Autostart */}
+                <label className="flex items-center justify-between cursor-pointer">
+                  <div>
+                    <div className="font-medium">{t("appearance.autostart")}</div>
+                    <div className="text-sm text-slate-500">
+                      {t("appearance.autostartDesc")}
+                    </div>
+                  </div>
+                  <button
+                    onClick={async () => {
+                      const newValue = !autostartEnabled;
+                      await autostartApi.setEnabled(newValue);
+                      setAutostartEnabled(newValue);
+                    }}
+                    className={cn(
+                      "relative w-11 h-6 rounded-full transition-colors",
+                      autostartEnabled
+                        ? "bg-primary-500"
+                        : "bg-slate-200 dark:bg-slate-700"
+                    )}
+                  >
+                    <div
+                      className={cn(
+                        "absolute top-1 w-4 h-4 rounded-full bg-white transition-transform",
+                        autostartEnabled ? "translate-x-6" : "translate-x-1"
+                      )}
+                    />
+                  </button>
+                </label>
 
                 {/* Close Action */}
                 <div>
@@ -490,6 +528,17 @@ export function SettingsPage() {
                       </div>
                     </div>
                   </div>
+                  {dbInfo?.path && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="gap-2"
+                      onClick={() => revealItemInDir(dbInfo.path)}
+                    >
+                      <FolderOpen className="w-4 h-4" />
+                      {t("data.db.openLocation")}
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
 

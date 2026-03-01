@@ -24,6 +24,10 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_autostart::init(
+            tauri_plugin_autostart::MacosLauncher::LaunchAgent,
+            Some(vec!["--minimized"]),
+        ))
         .setup(|app| {
             // Get app data directory
             let app_dir = app
@@ -106,6 +110,9 @@ pub fn run() {
             commands::export_to_csv,
             commands::export_to_json,
             commands::update_tray_menu,
+            // Autostart commands
+            commands::get_autostart,
+            commands::set_autostart,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
