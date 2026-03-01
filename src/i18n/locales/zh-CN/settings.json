@@ -46,7 +46,8 @@
     "db": {
       "title": "数据库",
       "location": "位置",
-      "size": "大小"
+      "size": "大小",
+      "openLocation": "打开文件位置"
     },
     "clear": {
       "title": "清除数据",

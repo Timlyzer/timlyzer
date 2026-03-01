@@ -18,6 +18,7 @@ import {
   Trash2,
   Palette,
   Info,
+  FolderOpen,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { cn, formatDuration } from "@/lib/utils";
@@ -33,6 +34,7 @@ import {
 import { appApi } from "@/services/tauri-api";
 import { format, subDays, startOfDay, endOfDay } from "date-fns";
 import { save } from "@tauri-apps/plugin-dialog";
+import { revealItemInDir } from "@tauri-apps/plugin-opener";
 
 type SettingsTab = "general" | "tracking" | "colors" | "data" | "about";
 
@@ -526,6 +528,17 @@ export function SettingsPage() {
                       </div>
                     </div>
                   </div>
+                  {dbInfo?.path && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="gap-2"
+                      onClick={() => revealItemInDir(dbInfo.path)}
+                    >
+                      <FolderOpen className="w-4 h-4" />
+                      {t("data.db.openLocation")}
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
 
