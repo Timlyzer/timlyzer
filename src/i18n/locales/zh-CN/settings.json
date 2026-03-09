@@ -70,6 +70,7 @@
       "stats": "统计与报表",
       "export": "数据导出"
     },
+    "repo": "GitHub 仓库",
     "builtWith": "基于 Tauri + React 构建",
     "createdBy": "由 haxqer & isabel 创建"
   },
