@@ -13,6 +13,8 @@
     "language": "Language",
     "autostart": "Start on boot",
     "autostartDesc": "Automatically start Timlyzer when you log in",
+    "hideDock": "Hide Dock icon",
+    "hideDockDesc": "Hide the app from Dock and only show in the system tray",
     "closeAction": "When closing window",
     "minimize": "Minimize to tray",
     "ask": "Ask every time",

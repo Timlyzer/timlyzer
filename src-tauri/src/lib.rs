@@ -66,6 +66,20 @@ pub fn run() {
                 tracker,
             });
 
+            // Restore Dock visibility from saved settings
+            #[cfg(target_os = "macos")]
+            {
+                let settings_db = Database::new(db_path.to_str().unwrap())
+                    .expect("Failed to open database for settings");
+                if let Ok(settings) = settings_db.get_settings() {
+                    if settings.hide_dock {
+                        use tauri::ActivationPolicy;
+                        let _ = app.handle().set_activation_policy(ActivationPolicy::Accessory);
+                        log::info!("Dock icon hidden (restored from settings)");
+                    }
+                }
+            }
+
             log::info!("Timlyzer initialized successfully");
 
             Ok(())
@@ -110,6 +124,8 @@ pub fn run() {
             commands::export_to_csv,
             commands::export_to_json,
             commands::update_tray_menu,
+            // Dock commands
+            commands::set_dock_visible,
             // Autostart commands
             commands::get_autostart,
             commands::set_autostart,

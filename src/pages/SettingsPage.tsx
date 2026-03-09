@@ -27,6 +27,7 @@ import {
   exportApi,
   trackItemApi,
   autostartApi,
+  dockApi,
   type TrackedApp,
   type DatabaseInfo,
   type AppSettings,
@@ -49,6 +50,7 @@ export function SettingsPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [exportMessage, setExportMessage] = useState("");
   const [autostartEnabled, setAutostartEnabled] = useState(false);
+  const [isMacOS] = useState(() => navigator.userAgent.includes("Macintosh"));
 
   // Load settings store for theme
   const { theme, setTheme } = useSettingsStore();
@@ -287,6 +289,41 @@ export function SettingsPage() {
                     />
                   </button>
                 </label>
+
+                {/* Hide Dock Icon (macOS only) */}
+                {isMacOS && (
+                  <label className="flex items-center justify-between cursor-pointer">
+                    <div>
+                      <div className="font-medium">{t("appearance.hideDock")}</div>
+                      <div className="text-sm text-slate-500">
+                        {t("appearance.hideDockDesc")}
+                      </div>
+                    </div>
+                    <button
+                      onClick={async () => {
+                        if (!settings) return;
+                        const newValue = !settings.hideDock;
+                        await dockApi.setVisible(!newValue);
+                        const updated = { ...settings, hideDock: newValue };
+                        setSettings(updated);
+                        await settingsApi.saveSettings(updated);
+                      }}
+                      className={cn(
+                        "relative w-11 h-6 rounded-full transition-colors",
+                        settings?.hideDock
+                          ? "bg-primary-500"
+                          : "bg-slate-200 dark:bg-slate-700"
+                      )}
+                    >
+                      <div
+                        className={cn(
+                          "absolute top-1 w-4 h-4 rounded-full bg-white transition-transform",
+                          settings?.hideDock ? "translate-x-6" : "translate-x-1"
+                        )}
+                      />
+                    </button>
+                  </label>
+                )}
 
                 {/* Close Action */}
                 <div>
