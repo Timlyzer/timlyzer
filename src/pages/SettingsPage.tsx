@@ -335,26 +335,35 @@ export function SettingsPage() {
                       { value: "minimize", label: t("appearance.minimize") },
                       { value: "ask", label: t("appearance.ask") },
                       { value: "quit", label: t("appearance.quit") },
-                    ].map((option) => (
-                      <label
-                        key={option.value}
-                        className="flex items-center gap-2 cursor-pointer"
-                      >
-                        <input
-                          type="radio"
-                          name="closeAction"
-                          value={option.value}
-                          checked={settings?.closeAction === option.value}
-                          onChange={() =>
+                    ].map((option) => {
+                      const isSelected = settings?.closeAction === option.value;
+                      return (
+                        <button
+                          key={option.value}
+                          type="button"
+                          onClick={() =>
                             setSettings((s) =>
                               s ? { ...s, closeAction: option.value } : s
                             )
                           }
-                          className="text-primary-500"
-                        />
-                        {option.label}
-                      </label>
-                    ))}
+                          className="flex items-center gap-2 cursor-pointer w-full text-left"
+                        >
+                          <div
+                            className={cn(
+                              "w-4 h-4 rounded-full border-2 flex items-center justify-center transition-colors",
+                              isSelected
+                                ? "border-slate-600 dark:border-green-500"
+                                : "border-slate-300 dark:border-slate-500"
+                            )}
+                          >
+                            {isSelected && (
+                              <div className="w-2 h-2 rounded-full bg-slate-600 dark:bg-green-500" />
+                            )}
+                          </div>
+                          {option.label}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 

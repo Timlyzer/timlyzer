@@ -108,14 +108,21 @@ input[type="range"]::-moz-range-thumb {
 
 /* Radio Input */
 input[type="radio"] {
-  @apply w-4 h-4 text-slate-600 dark:text-green-500 border-slate-300 dark:border-slate-600;
-  @apply focus:ring-slate-500 dark:focus:ring-green-500 focus:ring-2;
+  @apply w-4 h-4 border-slate-300 dark:border-slate-500;
+  @apply focus:ring-2;
+  accent-color: theme('colors.slate.600');
 }
 
 /* Checkbox Input */
 input[type="checkbox"] {
-  @apply w-4 h-4 text-slate-600 dark:text-green-500 border-slate-300 dark:border-slate-600 rounded;
-  @apply focus:ring-slate-500 dark:focus:ring-green-500 focus:ring-2;
+  @apply w-4 h-4 border-slate-300 dark:border-slate-500 rounded;
+  @apply focus:ring-2;
+  accent-color: theme('colors.slate.600');
+}
+
+.dark input[type="radio"],
+.dark input[type="checkbox"] {
+  accent-color: theme('colors.green.500');
 }
 
 /* Text Input */
