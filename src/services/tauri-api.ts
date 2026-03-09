@@ -288,6 +288,7 @@ export interface AppSettings {
   pollingInterval: number;
   idleThreshold: number;
   trackUrls: boolean;
+  hideDock: boolean;
 }
 
 export interface TrackedApp {
@@ -327,6 +328,7 @@ export const settingsApi = {
         pollingInterval: 3,
         idleThreshold: 300,
         trackUrls: false,
+        hideDock: false,
       };
     }
   },
@@ -454,6 +456,23 @@ export const autostartApi = {
       await invoke("set_autostart", { enabled });
     } catch (error) {
       console.error("setAutostart error:", error);
+    }
+  },
+};
+
+// ============================================================================
+// Dock API
+// ============================================================================
+
+export const dockApi = {
+  /**
+   * Set Dock icon visibility (macOS only)
+   */
+  setVisible: async (visible: boolean): Promise<void> => {
+    try {
+      await invoke("set_dock_visible", { visible });
+    } catch (error) {
+      console.error("setDockVisible error:", error);
     }
   },
 };

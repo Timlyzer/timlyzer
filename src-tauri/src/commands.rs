@@ -309,7 +309,7 @@ pub fn get_domain_usage_stats(
 // ============================================================================
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
+#[serde(rename_all = "camelCase", default)]
 pub struct AppSettings {
     pub theme: String,
     pub auto_start: bool,
@@ -317,6 +317,7 @@ pub struct AppSettings {
     pub polling_interval: u64, // seconds
     pub idle_threshold: u64,   // seconds
     pub track_urls: bool,
+    pub hide_dock: bool,
 }
 
 impl Default for AppSettings {
@@ -328,6 +329,7 @@ impl Default for AppSettings {
             polling_interval: 3,
             idle_threshold: 300,
             track_urls: false,
+            hide_dock: false,
         }
     }
 }
@@ -554,6 +556,32 @@ pub fn set_autostart(app: tauri::AppHandle, enabled: bool) -> Result<(), String>
     } else {
         manager.disable().map_err(|e: tauri_plugin_autostart::Error| e.to_string())
     }
+}
+
+// ============================================================================
+// Dock Visibility Commands
+// ============================================================================
+
+/// Set Dock icon visibility (macOS only)
+#[tauri::command]
+pub fn set_dock_visible(app_handle: tauri::AppHandle, visible: bool) -> Result<(), String> {
+    #[cfg(target_os = "macos")]
+    {
+        use tauri::ActivationPolicy;
+        let policy = if visible {
+            ActivationPolicy::Regular
+        } else {
+            ActivationPolicy::Accessory
+        };
+        app_handle
+            .set_activation_policy(policy)
+            .map_err(|e| e.to_string())?;
+    }
+    #[cfg(not(target_os = "macos"))]
+    {
+        let _ = (app_handle, visible);
+    }
+    Ok(())
 }
 
 // ============================================================================

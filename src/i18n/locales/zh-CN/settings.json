@@ -13,6 +13,8 @@
     "language": "语言",
     "autostart": "开机自启动",
     "autostartDesc": "登录时自动启动 Timlyzer",
+    "hideDock": "隐藏 Dock 图标",
+    "hideDockDesc": "从 Dock 中隐藏应用，仅在系统托盘中显示",
     "closeAction": "当关闭窗口时",
     "minimize": "最小化到托盘",
     "ask": "每次询问",
