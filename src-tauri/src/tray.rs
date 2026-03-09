@@ -14,6 +14,7 @@ pub struct TrayTranslations {
     pub tracking_enabled: String,
     pub open: String,
     pub summary: String,
+    pub settings: String,
     pub quit: String,
 }
 
@@ -23,6 +24,7 @@ impl Default for TrayTranslations {
             tracking_enabled: "Tracking Enabled".to_string(),
             open: "Open Timlyzer".to_string(),
             summary: "Today's Summary".to_string(),
+            settings: "Settings".to_string(),
             quit: "Quit".to_string(),
         }
     }
@@ -39,6 +41,8 @@ fn create_menu<R: Runtime>(app: &AppHandle<R>, trans: &TrayTranslations) -> taur
     )?;
     let open_item = MenuItem::with_id(app, "open", &trans.open, true, None::<&str>)?;
     let summary_item = MenuItem::with_id(app, "summary", &trans.summary, true, None::<&str>)?;
+    let settings_item =
+        MenuItem::with_id(app, "settings", &trans.settings, true, None::<&str>)?;
     let separator = MenuItem::with_id(app, "sep1", "───────────", false, None::<&str>)?;
     let quit_item = MenuItem::with_id(app, "quit", &trans.quit, true, None::<&str>)?;
 
@@ -49,6 +53,7 @@ fn create_menu<R: Runtime>(app: &AppHandle<R>, trans: &TrayTranslations) -> taur
             &separator,
             &open_item,
             &summary_item,
+            &settings_item,
             &separator,
             &quit_item,
         ],
@@ -77,6 +82,7 @@ pub fn setup_tray(app: &tauri::App) -> Result<TrayIcon, tauri::Error> {
                 if let Some(window) = app.get_webview_window("main") {
                     let _ = window.show();
                     let _ = window.set_focus();
+                    let _ = window.eval("window.location.assign('/')");
                 }
             }
             "summary" => {
@@ -85,6 +91,13 @@ pub fn setup_tray(app: &tauri::App) -> Result<TrayIcon, tauri::Error> {
                     let _ = window.set_focus();
                     // Navigate to summary page - we'll emit an event
                     let _ = window.eval("window.location.assign('/summary')");
+                }
+            }
+            "settings" => {
+                if let Some(window) = app.get_webview_window("main") {
+                    let _ = window.show();
+                    let _ = window.set_focus();
+                    let _ = window.eval("window.location.assign('/settings')");
                 }
             }
             "quit" => {
