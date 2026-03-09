@@ -277,8 +277,8 @@ export function SettingsPage() {
                     className={cn(
                       "relative w-11 h-6 rounded-full transition-colors",
                       autostartEnabled
-                        ? "bg-primary-500"
-                        : "bg-slate-200 dark:bg-slate-700"
+                        ? "bg-primary-500 dark:bg-green-500"
+                        : "bg-slate-300 dark:bg-slate-600 dark:ring-1 dark:ring-slate-400"
                     )}
                   >
                     <div
@@ -311,8 +311,8 @@ export function SettingsPage() {
                       className={cn(
                         "relative w-11 h-6 rounded-full transition-colors",
                         settings?.hideDock
-                          ? "bg-primary-500"
-                          : "bg-slate-200 dark:bg-slate-700"
+                          ? "bg-primary-500 dark:bg-green-500"
+                          : "bg-slate-300 dark:bg-slate-600 dark:ring-1 dark:ring-slate-400"
                       )}
                     >
                       <div
@@ -448,8 +448,8 @@ export function SettingsPage() {
                     className={cn(
                       "relative w-11 h-6 rounded-full transition-colors",
                       settings?.trackUrls
-                        ? "bg-primary-500"
-                        : "bg-slate-200 dark:bg-slate-700"
+                        ? "bg-primary-500 dark:bg-green-500"
+                        : "bg-slate-300 dark:bg-slate-600 dark:ring-1 dark:ring-slate-400"
                     )}
                   >
                     <div
