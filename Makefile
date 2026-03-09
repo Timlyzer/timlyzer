@@ -19,10 +19,10 @@ build: ## Build the application for production
 build-debug: ## Build in debug mode
 	pnpm tauri build --debug
 
-run: ## Build, kill old instance, and launch the app for quick testing
-	pnpm tauri build
-	-pkill -x Timlyzer 2>/dev/null; sleep 1
-	open src-tauri/target/release/bundle/macos/Timlyzer.app
+run: ## Build release binary (no bundle), kill old instance, and launch
+	pnpm tauri build --no-bundle
+	-pkill -x Timlyzer 2>/dev/null; pkill -x timlyzer 2>/dev/null; sleep 1
+	./src-tauri/target/release/timlyzer &
 
 # Quality Checks
 check: ## Check Rust code for errors
