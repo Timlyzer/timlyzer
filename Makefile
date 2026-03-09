@@ -22,7 +22,7 @@ build-debug: ## Build in debug mode
 run: ## Build release binary (no bundle), kill old instance, and launch
 	pnpm tauri build --no-bundle
 	-pkill -x Timlyzer 2>/dev/null; pkill -x timlyzer 2>/dev/null; sleep 1
-	./src-tauri/target/release/timlyzer
+	./src-tauri/target/release/timlyzer &
 
 # Quality Checks
 check: ## Check Rust code for errors
