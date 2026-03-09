@@ -72,6 +72,7 @@
       "stats": "Statistics and reports",
       "export": "Data export"
     },
+    "repo": "GitHub Repository",
     "builtWith": "Built with Tauri + React",
     "createdBy": "Created by haxqer & isabel"
   },
